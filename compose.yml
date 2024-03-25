@@ -1,0 +1,17 @@
+version: '3'
+services:
+  web:
+    build: .
+      #command: bundle exec puma config.ru
+    container_name: sinatra_demo_container
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/app
+      - bundle_data:/usr/local/bundle:cached
+    environment:
+      TZ: Asia/Tokyo
+    ports:
+      - "9292:9292"
+volumes:
+  bundle_data:
