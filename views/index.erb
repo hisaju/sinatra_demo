@@ -6,6 +6,33 @@
   </head>
   <body>
     <h1>Hello World!!</h1>
+
+    <form method="get">
+      <select name="category">
+        <option></option>
+        <% @categories.each do |category| %>
+          <option value="<%= category %>"><%= category %></option>
+        <% end %>
+      </select>
+      <input type="text" name="title" />
+      <input type="submit"/>
+    </form>
+    <table border="1">
+      <tr>
+        <th>title</th>
+        <th>description</th>
+        <th>category</th>
+        <th>Link</th>
+      </tr>
+      <% @list['entries'].each do |api| %>
+        <tr>
+          <td><%= api['API'] %></td>
+          <td><%= api['Description'] %></td>
+          <td><%= api['Category'] %></td>
+          <td><%= api['Link'] %></td>
+        </tr>
+      <% end %>
+    </table>
   </body>
 </html>
 
